@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -10,13 +10,16 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 const Detail: React.FC = () => {
   const apiImages: string = "https://jsonplaceholder.typicode.com/photos";
+  const [albumId, setAlbumId] = useState<string | null>("");
 
-  // Lấy đối tượng URLSearchParams từ query parameter
-  const albumId = new URLSearchParams(window.location.search).get("id");
+  useEffect(() => {
+    setAlbumId(new URLSearchParams(window.location.search).get("id"));
+    mutate(apiImages + `?albumId=${albumId}`);
+  }, []);
 
   const getDataImages = async () => {
     try {
@@ -73,6 +76,7 @@ const Detail: React.FC = () => {
         {Array.isArray(listImage) &&
           listImage.length > 0 &&
           listImage.map((item) => {
+            console.log("id: ", item.albumId);
             return (
               <Card key={item.id} className="flex flex-col h-auto max-h-full">
                 <CardMedia

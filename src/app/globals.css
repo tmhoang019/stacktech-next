@@ -1,27 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import 'normalize.css';
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root{
+  --primary-color: #dc0000;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:html{
+  font-size: 62.5%;
+}
+
+body{
+  line-height:0px;
+  font-family: sans-serif;
+  font-size: 1.6rem;
+  text-rendering: optimizeSpeed;
+}
+
+button,
+input{
+  border: none;
+  outline: none;
+}
+
+a[href]{
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.wrapper{
+  width: 1200px;
+  max-width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  margin-top: 128px;
+}
+.container{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1400px){
+  .wrapper .container{
+      max-width: 1320px;
+  }
+}
+@media (max-width: 1200px){
+  .wrapper{
+      margin-top: 164px;
+  }
+  .wrapper .container{
+      max-width: 1140px;
+  }
+}
+@media (max-width: 922px){
+  .wrapper .container{
+      max-width: 960px;
+  }
+}
+@media (max-width: 768px){
+  .wrapper .container{
+      max-width: 720px;
+  }
+}
+@media (max-width: 576px){
+  .wrapper{
+      margin-top: 134px;
+  }
+  .wrapper .container{
+      max-width: 540px;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}

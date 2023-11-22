@@ -69,7 +69,7 @@ const Detail: React.FC = () => {
       </span>
       <div
         className="grid 
-                grid-cols-1 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2
+                grid-cols-1 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-3 xs:grid-cols-2
                 gap-5
                 px-5"
       >
@@ -85,17 +85,18 @@ const Detail: React.FC = () => {
                   title="imageAlbum"
                 />
                 <div className="flex flex-col flex-1">
-                  <CardContent className="flex-1 flex flex-col justify-between">
-                    <Typography
-                      variant="h6"
-                      align="left"
-                      className="h-16 overflow-hidden overflow-ellipsis break-words"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography variant="body2" className="-mt-6">
+                  <CardContent className="flex-1 flex flex-col justify-between h-20">
+                    <div className="md:h-[40px] lg:h-[70px] overflow-hidden">
+                      <p
+                        className="text-xl lg:text-base
+                                   sm:truncate lg:text-clip lg:whitespace-normal"
+                      >
+                        {item.title}
+                      </p>
+                    </div>
+                    <p className="mt-3 text-base text-[#928d8d]">
                       Image of album {albumId}
-                    </Typography>
+                    </p>
                   </CardContent>
                   <CardActions>
                     <Button

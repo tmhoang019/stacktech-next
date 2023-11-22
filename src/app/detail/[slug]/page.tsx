@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -10,16 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 
-const Detail: React.FC = () => {
+const Detail = ({ params }: { params: { slug: string } }) => {
   const apiImages: string = "https://jsonplaceholder.typicode.com/photos";
-  const [albumId, setAlbumId] = useState<string | null>("");
-
-  useEffect(() => {
-    setAlbumId(new URLSearchParams(window.location.search).get("id"));
-    mutate(apiImages + `?albumId=${albumId}`);
-  }, []);
+  const albumId = params.slug;
 
   const getDataImages = async () => {
     try {

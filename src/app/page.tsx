@@ -60,7 +60,7 @@ const Home: React.FC = () => {
       </Grid>
       {Array.isArray(listAlbum) && listAlbum.length > 0 ? (
         listAlbum.map((item) => {
-          let href = `/detail?id=${item.id}`;
+          let href = `/detail/${item.id}`;
           return (
             <Grid item xs={12} sm={6} md={4} key={item.id}>
               <Box
